@@ -12,13 +12,14 @@ clients =[]
 
 def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
+    #inicia o server e deixa ele aberto a conexões 
     try:
         s.bind((HOST, PORT))
         s.listen()
     except:
         return print("\n Não foi possivel iniciar o servidor!\n")
 
+    #aceita as conexões dos clientes e adiciona a info do cliente na lista de clientes 
     while True:
         conn , addrs = s.accept()
         clients.append(conn)
@@ -28,6 +29,7 @@ def main():
         thread1 = threading.Thread(target=msgReceivedTreatment,args=[conn])
         thread1.start()
 
+#tratamento de mensagens dos clientes pelo servidor
 def msgReceivedTreatment(conn):
     while True:
         try:

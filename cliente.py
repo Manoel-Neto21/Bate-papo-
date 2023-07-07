@@ -18,13 +18,15 @@ def main():
     if username == '':
         username = 'Anonimo'
     
+    #crias as threads para o usuario poder mandar e receber mensagens ao mesmo tempo
     thread1 = threading.Thread(target=receiveMsg,args=[s])
     thread2 = threading.Thread(target=sendMsg,args=[s, username])
 
+    #inicia as threads
     thread1.start()
     thread2.start()
 
-
+#função para enviar mensagens as servidor
 def sendMsg(s, username):
     while True:
         try:
@@ -32,7 +34,7 @@ def sendMsg(s, username):
             s.send(f'<{username}> {msg}'.encode('utf-8'))
         except:
             return
-
+#função para tratar mensagens recebidas do servidor
 def receiveMsg(s):
     while True:
         try:

@@ -28,7 +28,7 @@ def main():
 def sendMsg(s, username):
     while True:
         try:
-            msg= input("\n>")
+            msg= input("\n")
             s.send(f'<{username}> {msg}'.encode('utf-8'))
         except:
             return

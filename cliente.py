@@ -12,7 +12,6 @@ def main():
         print("\nNão foi possivel conectar ao servidor!\n")
 
     print("para sair digite CTRL+X\n")
-    username = input("Usuario > ")
     print('\nConectado ')
 
     if username == '':

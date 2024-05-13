@@ -3,7 +3,7 @@
 import socket
 from _thread import *
 import threading
-
+qui
 HOST ='localhost'
 PORT = 50000
 
